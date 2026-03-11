@@ -1,0 +1,184 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+@layer base {
+	:root {
+		--dental-paper: #f4ede2;
+		--dental-paper-deep: #e8ddcd;
+		--dental-surface: #f8f2e9;
+		--dental-ink: #423730;
+		--dental-muted: #6f6459;
+		--dental-sage: #7e907c;
+		--dental-sage-deep: #6f806c;
+		--dental-line: #d5c6b3;
+	}
+
+	body {
+		font-family: 'Outfit', sans-serif;
+		color: var(--dental-ink);
+		background:
+			radial-gradient(60% 35% at 0% 0%, rgba(173, 153, 121, 0.18), transparent 70%),
+			radial-gradient(50% 28% at 100% 20%, rgba(137, 165, 129, 0.14), transparent 70%),
+			var(--dental-paper);
+	}
+}
+
+@layer components {
+	.dental-shell {
+		@apply relative overflow-hidden;
+	}
+
+	.dental-shell::before,
+	.dental-shell::after {
+		content: '';
+		position: absolute;
+		pointer-events: none;
+		border-radius: 9999px;
+		filter: blur(2px);
+	}
+
+	.dental-shell::before {
+		width: 320px;
+		height: 320px;
+		left: -160px;
+		top: 8%;
+		background: radial-gradient(circle, rgba(151, 170, 141, 0.26), rgba(151, 170, 141, 0));
+	}
+
+	.dental-shell::after {
+		width: 360px;
+		height: 360px;
+		right: -170px;
+		bottom: 4%;
+		background: radial-gradient(circle, rgba(184, 161, 128, 0.2), rgba(184, 161, 128, 0));
+	}
+
+	.dental-heading {
+		font-family: 'Cormorant Garamond', serif;
+		@apply text-[#423730] leading-[1.1] tracking-tight;
+	}
+
+	.dental-copy {
+		@apply text-[#6f6459] leading-relaxed;
+	}
+
+	.dental-card {
+		@apply rounded-[1.2rem] border border-[#d8c9b7] bg-[#f9f3eb] shadow-[0_6px_22px_rgba(72,48,22,0.1)];
+	}
+
+	.dental-primary-btn {
+		@apply rounded-full bg-[#7e907c] px-7 py-3 text-[#f8f2e9] transition-all hover:-translate-y-0.5 hover:bg-[#6f806c] hover:shadow-md;
+	}
+
+	.dental-secondary-btn {
+		@apply rounded-full border border-[#cfbda8] bg-[#f6efe6] px-7 py-3 text-[#6f6459] transition-all hover:-translate-y-0.5 hover:bg-[#f1e7da];
+	}
+}
+
+/* ===== Dental soft watercolor theme ===== */
+:root {
+  --bg-paper: #f8f3e8;
+  --ink: #3f352f;
+  --sage: #7c9272;
+  --sage-dark: #5f7656;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+  color: var(--ink);
+  background: var(--bg-paper);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* soft watercolor blur layers */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: -80px;
+  pointer-events: none;
+}
+
+body::before {
+  z-index: -2;
+  background:
+    radial-gradient(620px 340px at 8% 10%, rgba(151, 170, 131, 0.26), transparent 72%),
+    radial-gradient(700px 360px at 95% 14%, rgba(208, 185, 153, 0.28), transparent 72%),
+    radial-gradient(640px 340px at 8% 88%, rgba(154, 176, 139, 0.22), transparent 74%),
+    radial-gradient(720px 390px at 92% 92%, rgba(204, 190, 165, 0.24), transparent 74%);
+  filter: blur(20px);
+}
+
+body::after {
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.28)),
+    radial-gradient(1000px 600px at 50% 50%, rgba(245, 239, 228, 0.55), transparent 72%);
+  filter: blur(10px);
+}
+
+/* global smooth transitions */
+button,
+a {
+  transition: all 240ms ease;
+}
+
+/* reusable glass/soft card */
+.soft-card {
+  background: rgba(255, 252, 245, 0.84);
+  border: 1px solid rgba(164, 148, 122, 0.2);
+  box-shadow: 0 6px 18px rgba(90, 73, 50, 0.08);
+  backdrop-filter: blur(3px);
+  transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+}
+
+.soft-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(90, 73, 50, 0.14);
+  border-color: rgba(124, 146, 114, 0.45);
+}
+
+/* call CTA button */
+.btn-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.7rem 1.1rem;
+  background: linear-gradient(180deg, var(--sage), var(--sage-dark));
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(95, 118, 86, 0.28);
+}
+
+.btn-call:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 22px rgba(95, 118, 86, 0.34);
+}
+
+.watercolor-frame {
+	position: relative;
+}
+
+.watercolor-frame::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	border-radius: inherit;
+	background:
+		radial-gradient(80% 36% at 50% 100%, rgba(247, 240, 230, 0.78), transparent 70%),
+		radial-gradient(26% 24% at 0% 0%, rgba(247, 240, 230, 0.45), transparent 72%),
+		radial-gradient(24% 22% at 100% 0%, rgba(247, 240, 230, 0.45), transparent 74%);
+}
