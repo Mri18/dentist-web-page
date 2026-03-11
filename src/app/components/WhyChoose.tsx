@@ -1,5 +1,6 @@
 import clinicWaitingRoomImg from '../../assets/clinic-waiting-room.png';
 import receptionDeskImg from '../../assets/reception-desk.png';
+import { motion } from 'motion/react';
 
 const reasons = [
   {
@@ -23,7 +24,13 @@ export function WhyChoose() {
   return (
     <section id="about" className="relative overflow-hidden bg-[#f5ede0] py-12 sm:py-14 lg:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.55 }}
+          className="mb-10 text-center"
+        >
           <h2 style={{ fontFamily: "'Cormorant Garamond', serif" }} className="dental-heading mb-3 text-4xl sm:text-5xl lg:text-[4rem]">
             Why Choose Our Clinic
           </h2>
@@ -31,11 +38,19 @@ export function WhyChoose() {
             Comprehensive dental care for the whole family. Explore our wide range of
             services tailored to fit your needs.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid gap-5 md:grid-cols-3">
-          {reasons.map((reason) => (
-            <article key={reason.title} className="overflow-hidden rounded-2xl border border-[#dacbb8] bg-[#f8f2e8] shadow-[0_8px_20px_rgba(74,58,38,0.12)]">
+          {reasons.map((reason, index) => (
+            <motion.article
+              key={reason.title}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.45, delay: index * 0.1 }}
+              whileHover={{ y: -5 }}
+              className="overflow-hidden rounded-2xl border border-[#dacbb8] bg-[#f8f2e8] shadow-[0_8px_20px_rgba(74,58,38,0.12)]"
+            >
               <div
                 className="h-36 bg-cover bg-center bg-no-repeat sm:h-44"
                 style={{ backgroundImage: `url('${reason.image}')` }}
@@ -48,7 +63,7 @@ export function WhyChoose() {
                 </h3>
                 <p className="text-[0.95rem] text-[#675c50]">{reason.description}</p>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>

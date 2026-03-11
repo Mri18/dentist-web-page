@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail } from 'lucide-react';
+import { motion } from 'motion/react';
 
 export function ContactMap() {
   return (
@@ -7,15 +8,28 @@ export function ContactMap() {
       <div className="pointer-events-none absolute -right-20 bottom-8 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(200,170,132,0.22),transparent_72%)]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-8 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.45 }}
+          transition={{ duration: 0.55 }}
+          className="mb-8 text-center"
+        >
           <h2 style={{ fontFamily: "'Cormorant Garamond', serif" }} className="dental-heading text-4xl sm:text-5xl lg:text-[4rem]">
             Book Your Visit
           </h2>
           <p className="dental-copy mt-2 text-[1.02rem]">Quick appointment form with clinic location.</p>
-        </div>
+        </motion.div>
 
         <div className="grid gap-6 lg:grid-cols-[1fr_1.05fr]">
-          <article className="rounded-2xl border border-[#d8c8b2] bg-[#f8f1e6] p-5 shadow-[0_12px_28px_rgba(74,57,36,0.12)] sm:p-6">
+          <motion.article
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.55 }}
+            whileHover={{ y: -3 }}
+            className="rounded-2xl border border-[#d8c8b2] bg-[#f8f1e6] p-5 shadow-[0_12px_28px_rgba(74,57,36,0.12)] sm:p-6"
+          >
             <form className="space-y-4">
               <div>
                 <label htmlFor="name" className="mb-1 block text-sm text-[#6e6255]">Full Name</label>
@@ -60,9 +74,16 @@ export function ContactMap() {
               <p className="flex items-center gap-2"><Mail className="h-4 w-4 text-[#7f946f]" /> hello@brightsmile.com</p>
               <p className="flex items-center gap-2"><MapPin className="h-4 w-4 text-[#7f946f]" /> 123 Main Street, Anytown</p>
             </div>
-          </article>
+          </motion.article>
 
-          <article className="overflow-hidden rounded-2xl border border-[#d8c8b2] bg-[#f8f1e6] p-2 shadow-[0_12px_28px_rgba(74,57,36,0.12)]">
+          <motion.article
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.55 }}
+            whileHover={{ y: -3 }}
+            className="overflow-hidden rounded-2xl border border-[#d8c8b2] bg-[#f8f1e6] p-2 shadow-[0_12px_28px_rgba(74,57,36,0.12)]"
+          >
             <div className="watercolor-frame h-[20rem] overflow-hidden rounded-[1rem] sm:h-[24rem] lg:h-full">
               <iframe
                 title="Clinic location map"
@@ -72,7 +93,7 @@ export function ContactMap() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
-          </article>
+          </motion.article>
         </div>
       </div>
     </section>
