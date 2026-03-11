@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  base: '/dentist-web-page/',   // 👈 ADD THIS
+  base: '/',   // 👈 ADD THIS
 
   plugins: [
     react(),
