@@ -1,11 +1,83 @@
+# Dentist Web Page
 
-  # Dentist Web Page
+A modern and responsive **Dentist Landing Page** built using **React, Vite, TypeScript, and Tailwind CSS**.
+The project demonstrates a clean UI design for a dental clinic website with sections for services, appointments, and contact information.
 
-  This is a code bundle for Dentist Web Page. The original project is available at https://www.figma.com/design/oDPL56DhONj7ptrAlBqWUY/Dentist-Web-Page.
+## 🚀 Tech Stack
 
-  ## Running the code
+* React
+* Vite
+* TypeScript
+* Tailwind CSS
 
-  Run `npm i` to install the dependencies.
+## 📦 Installation
 
-  Run `npm run dev` to start the development server.
-  
+Clone the repository:
+
+```bash
+git clone https://github.com/Mri18/dentist-web-page.git
+cd dentist-web-page
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+## ▶️ Running the Project
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open the application in your browser:
+
+```
+http://localhost:5173
+```
+
+## 🏗 Build for Production
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+## 🌐 Deployment
+
+The project can be deployed using platforms like:
+
+* GitHub Pages
+* Vercel
+* Netlify
+
+## 📁 Project Structure
+
+```
+dentist-web-page
+│
+├── src
+│   ├── components
+│   ├── assets
+│   ├── App.tsx
+│   └── main.tsx
+│
+├── public
+├── index.html
+├── package.json
+└── vite.config.ts
+```
+
+## 📄 License
+
+This project is for learning and demonstration purposes.
